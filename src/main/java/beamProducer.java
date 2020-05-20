@@ -35,7 +35,7 @@ public class beamProducer {
                 .apply(Create.of(kvs));
 
         input.apply(KafkaIO.<Void, customerSubscription>write()
-                .withBootstrapServers("pkc-4yyd6.us-east1.gcp.confluent.cloud:9092")
+                .withBootstrapServers("<CCLOUD_BOOTSTRAP_URL>")
                 .withTopic("beamTopic")
                 .withProducerConfigUpdates(getSRConfigs())
                 .withValueSerializer((Class<? extends Serializer<customerSubscription>>) sampleSerializer.getSerializer(getSRConfigs(),false).getClass())
